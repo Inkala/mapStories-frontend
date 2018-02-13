@@ -22,7 +22,7 @@ To run locally:
 
 ## Credits
 
-A bit **thank you** to the original team that started this project! The original repos are to found here:
+A bit **thank you** to the original team that started this project! The original repos are to be found here:
 * [frontend](https://github.com/fredpinon/map-stories-front-end)
 * [backend](https://github.com/isabellachen/map-stories-backend)
 
