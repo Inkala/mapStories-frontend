@@ -12,7 +12,7 @@ class LoginButton extends Component {
     return (
       <FacebookLogin
         cssClass="LoginButton"
-        appId="226216701254854"
+        appId="1365727290221575"
         autoLoad={false}
         fields="name,email,picture.type(large)"
         scope="public_profile, email"

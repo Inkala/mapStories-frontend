@@ -56,7 +56,7 @@ class Map extends Component {
       ? [this.props.marker.lng, this.props.marker.lat]
       : [2.15, 41.36];
 
-    mapboxgl.accessToken = '';
+    mapboxgl.accessToken = 'pk.eyJ1IjoiaW5rYWxhIiwiYSI6ImNqZWp3cWU2MTBqeDIzM29mOXA1Z2Y0d2IifQ.5RORe9JudR9MDjAYqrMVqQ';
 
     this.map = new mapboxgl.Map({
       container: 'map',
