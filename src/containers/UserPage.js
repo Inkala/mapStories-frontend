@@ -18,7 +18,7 @@ class UserPage extends Component {
   state = {
     open: false,
     disabled: true,
-    renderEditor: false,
+    renderEditor: true,
     loading: true,
   };
 

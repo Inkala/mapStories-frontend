@@ -1,5 +1,5 @@
 .StoryList {
-  max-width: 1200px;
+  max-width: 960px;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -10,7 +10,7 @@
   margin: 0.5em 0;
   cursor: pointer;
   display: flex;
-  min-width: 1000px;
+  width: 100%;
 }
 
 .ListItemPaper {

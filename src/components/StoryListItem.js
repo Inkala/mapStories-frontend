@@ -13,21 +13,21 @@ class StoryListItem extends Component {
     openPublish: false
   };
 
- openPublishDialog = () => this.setState({openPublish: true});
+  openPublishDialog = () => this.setState({openPublish: true});
 
- closePublishDialog = () => this.setState({openPublish: false});
+  closePublishDialog = () => this.setState({openPublish: false});
 
- openDeleteDialog = () => this.setState({openDelete: true});
+  openDeleteDialog = () => this.setState({openDelete: true});
 
- closeDeleteDialog = () => this.setState({openDelete: false});
+  closeDeleteDialog = () => this.setState({openDelete: false});
 
- deleteStoryConfirm = () => {
+  deleteStoryConfirm = () => {
     this.setState({openDelete: false});
     const storyId = this.props.story._id;
     this.props.deleteStory(storyId);
   };
 
- publishStoryConfirm = () => {
+  publishStoryConfirm = () => {
     this.setState({openPublish: false});
     const storyId = this.props.story._id;
     const data = this.props.story.published ? {published: false} : {published: true};
@@ -38,7 +38,7 @@ class StoryListItem extends Component {
     this.props.publishStory(storyId, data);
   };
 
- renderEditButton = () => {
+  renderEditButton = () => {
     return (
       <FlatButton
         label='EDIT'
@@ -49,7 +49,7 @@ class StoryListItem extends Component {
     )
   };
 
- renderDeleteButton = () => {
+  renderDeleteButton = () => {
     const actionsDelete = [
       <FlatButton
         label="Cancel"
@@ -88,7 +88,7 @@ class StoryListItem extends Component {
     )
   }
 
- renderPublishButton = () => {
+  renderPublishButton = () => {
     const published = this.props.story.published ? 'UNPUBLISH' : 'PUBLISH';
     const dialogTitle = this.props.story.published ?
      'Are you sure you want to unpublish?' :
@@ -128,7 +128,7 @@ class StoryListItem extends Component {
     )
   }
 
- renderButtons = () => {
+  renderButtons = () => {
     if (window.location.href.match('me/stories') !== null) {
       return (
         <div className='ButtonsRender'>
@@ -140,7 +140,7 @@ class StoryListItem extends Component {
     }
   }
 
- renderStoryAssets = () => {
+  renderStoryAssets = () => {
     const { title, tagLine, editor, _id } = this.props.story ? this.props.story : null;
     const editorInfo = this.props.editors[editor];
     return (
@@ -157,7 +157,7 @@ class StoryListItem extends Component {
     )
   }
 
- render() {
+  render() {
    const style = {
       height: 80,
       width: '100%'

@@ -31,12 +31,16 @@ class EventInfo extends Component {
   constructor (props) {
     super(props);
     if (props.event) {
-      this.state.eventInfo = {
-        title: props.event.title || '',
-        mapLocation: props.event.mapLocation || '',
-        dateAndTime: props.event.dateAndTime || '',
-      }
-      this.state.attachments = props.event.attachments;
+      this.setState({
+        eventInfo: {
+          title: props.event.title || '',
+          mapLocation: props.event.mapLocation || '',
+          dateAndTime: props.event.dateAndTime || '',
+        }
+      })
+      this.setState({
+        attachments: props.event.attachments
+      })
     }
   }
 
