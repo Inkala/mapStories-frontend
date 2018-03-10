@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import Paper from 'material-ui/Paper';
 import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
 
 import { updateStory, deleteStory, fetchSingleStory, showError } from '../actions';
 
@@ -40,8 +40,8 @@ class StoryListItem extends Component {
 
   renderEditButton = () => {
     return (
-      <FlatButton
-        label='EDIT'
+      <RaisedButton
+        label='Edit'
         rippleColor="rippleColor"
         primary={true}
         href={`/me/editstory/${this.props.story._id}`}
@@ -51,13 +51,13 @@ class StoryListItem extends Component {
 
   renderDeleteButton = () => {
     const actionsDelete = [
-      <FlatButton
+      <RaisedButton
         label="Cancel"
         primary={true}
         onClick={this.closeDeleteDialog}
         rippleColor="rippleColor"
       />,
-      <FlatButton
+      <RaisedButton
         label="Delete"
         primary={true}
         onClick={this.deleteStoryConfirm}
@@ -66,8 +66,8 @@ class StoryListItem extends Component {
     ];
     return (
       <div>
-        <FlatButton
-          label='DELETE'
+        <RaisedButton
+          label='Delete'
           onClick={(e) => {
             e.preventDefault();
             this.setState({openDelete: true});;
@@ -83,24 +83,24 @@ class StoryListItem extends Component {
           >
             Story cannot be restored later
           </Dialog>
-        </FlatButton>
+        </RaisedButton>
       </div>
     )
   }
 
   renderPublishButton = () => {
-    const published = this.props.story.published ? 'UNPUBLISH' : 'PUBLISH';
+    const published = this.props.story.published ? 'Unpublish' : 'Publish';
     const dialogTitle = this.props.story.published ?
      'Are you sure you want to unpublish?' :
      'Are you sure you want to publish?';
     const actionsPublish = [
-      <FlatButton
+      <RaisedButton
         label="Cancel"
         primary={true}
         onClick={this.closePublishDialog}
         rippleColor="rippleColor"
       />,
-      <FlatButton
+      <RaisedButton
         label="Confirm"
         primary={true}
         onClick={this.publishStoryConfirm}
@@ -108,7 +108,7 @@ class StoryListItem extends Component {
       />,
     ];
     return (
-      <FlatButton
+      <RaisedButton
         label={published}
         onClick={(e) => {
           e.preventDefault();
@@ -124,7 +124,7 @@ class StoryListItem extends Component {
           open={this.state.openPublish}
         >
         </Dialog>
-      </FlatButton>
+      </RaisedButton>
     )
   }
 
@@ -132,9 +132,9 @@ class StoryListItem extends Component {
     if (window.location.href.match('me/stories') !== null) {
       return (
         <div className='ButtonsRender'>
-          {this.renderEditButton()}
-          {this.renderDeleteButton()}
-          {this.renderPublishButton()}
+          <div className="single-button">{this.renderEditButton()}</div>
+          <div className="single-button">{this.renderDeleteButton()}</div>
+          <div className="single-button">{this.renderPublishButton()}</div>
         </div>
       )
     }
@@ -145,11 +145,13 @@ class StoryListItem extends Component {
     const editorInfo = this.props.editors[editor];
     return (
       <div className="ListItemPaper">
-        <a href={`/story/${_id}`} className="ListItemDescription">
-          <p>{title}</p>
-          <p>{tagLine}</p>
-          {this.props.renderEditor ? <p>by {editorInfo.name}</p> : null }
-        </a>
+        <div className="ListItemDescription">
+          <a href={`/story/${_id}`}>
+            <p>{title}</p>
+            <p>{tagLine}</p>
+            {this.props.renderEditor ? <p><small>by {editorInfo.name}</small></p> : null }
+          </a>
+        </div>
         <div className='Buttons'>
           {this.renderButtons()}
         </div>
