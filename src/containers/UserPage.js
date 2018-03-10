@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import '../css/UserPage.css';
 
 import { connect } from 'react-redux';
@@ -129,7 +129,6 @@ class UserPage extends Component {
     );
   }
 }
-
 const mapStateToProps = (state) => ({
   stories: state.entities.stories,
   page: state.pages.editorStoriesPage,

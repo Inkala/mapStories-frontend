@@ -247,7 +247,7 @@ class EventInfo extends Component {
           <FlatButton
             label="Delete attachment"
             primary={true}
-            rippleColor="#673AB7"
+
             onClick={() => this.deleteAttachment(index)}
           />
         </div>
@@ -264,7 +264,7 @@ class EventInfo extends Component {
               <FlatButton
                 label="Submit"
                 primary={true}
-                rippleColor="#673AB7"
+
                 onClick={() => {
                   return this.changeAttachmentProperty(
                   index,
@@ -289,7 +289,7 @@ class EventInfo extends Component {
                 <FlatButton
                   label="Submit"
                   primary={true}
-                  rippleColor="#673AB7"
+
                   onClick={() => this.changeAttachmentProperty(index, type === 'text' ? 'text' : (type === 'image' ? 'imageUrl' : 'url') , this.eventURLField.input.value)}
                 />
               </div>
@@ -303,7 +303,7 @@ class EventInfo extends Component {
             <FlatButton
               label="Submit"
               primary={true}
-              rippleColor="#673AB7"
+
               onClick={() => this.changeAttachmentProperty(index, type === 'text' ? 'text' : (type === 'image' ? 'imageUrl' : 'url') , this.eventURLField.input.value)}
             />
           </div>
@@ -451,14 +451,14 @@ class EventInfo extends Component {
           <br />
           {this.renderAttachmentContent(el, index)}
           <Divider style={{
-            width: '140%',
+            width: '113%',
             marginLeft: -30,
             marginTop: 60,
           }} />
         </div>
       )
     })
-    const style = {marginTop: 50}
+    const style = {marginTop: 30}
     const style2 = {
       marginTop: 30,
       float: 'right'
@@ -477,7 +477,6 @@ class EventInfo extends Component {
               label="Next"
               primary={true}
               style={style2}
-              rippleColor="#673AB7"
               disabled={!this.props.showNext}
               onClick={this.props.goNext}
             />
@@ -486,7 +485,6 @@ class EventInfo extends Component {
               label="Prev"
               primary={true}
               style={style2}
-              rippleColor="#673AB7"
               disabled={!this.props.showPrev}
               onClick={this.props.goPrev}
              />
@@ -514,22 +512,17 @@ class EventInfo extends Component {
             onChange={this.handleTextChange}
             value={this.state.eventInfo.dateAndTime}
           /><br />
-          <Divider className="Divider" style={{
-            width: '140%',
-            marginLeft: -30,
-            marginTop: 60,
-          }} />
           {attachments}
           <FlatButton className="AddAttachment" label="+ Add Attachment" primary={true} style={style} onClick={this.addAttachment}/>
           <Divider style={{
-            width: '140%',
+            width: '113%',
             marginLeft: -30,
-            marginTop: 60,
+            marginTop: 30,
           }} />
           <div className="saveButtons">
             <div className="saveDelete">
-              <FlatButton className="Delete" label="Delete" primary={true} style={style2} rippleColor="#673AB7" onClick={this.deleteEvent}/>
-              <FlatButton className="Save" label="Save" primary={true} style={style2} rippleColor="#673AB7" onClick={this.saveEvent}/>
+              <FlatButton className="Delete" label="Delete" primary={true} style={style2} onClick={this.deleteEvent}/>
+              <FlatButton className="Save" label="Save" primary={true} style={style2} onClick={this.saveEvent}/>
             </div>
           </div>
         </Paper>

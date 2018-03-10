@@ -50,32 +50,25 @@ class HomePage extends Component {
       return accum;
     },{});
     return (searchResultsLength === 0 & this.props.shouldSearch) ? (
-      <div className="NoStories">No stories match your search.</div>
+      <div className="NoStories">
+        No stories match your search.
+      </div>
     ) : (
-      this.props.shouldSearch
-      ?
-        this.renderSearch(publishedStories)
-      :
-        <StoryList className="Searched" stories={publishedStories}/>
-)
-
-
-
-
-
+      this.props.shouldSearch ?
+      this.renderSearch(publishedStories)
+      : <StoryList className="Searched" stories={publishedStories}/>
+    )
   }
 
   renderComponent = () => {
     return this.state.loading ? (
       <Loader text="loading..."/>
     ) : (
-      this.props.page.pageResults.length === 0
-      ?
+      this.props.page.pageResults.length === 0 ?
         <div className="NoStories">
           No Stories have been published yet.
         </div>
-      :
-        this.renderList()
+      : this.renderList()
     )
   }
 

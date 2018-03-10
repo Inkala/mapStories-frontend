@@ -13,6 +13,7 @@ class StoryListItem extends Component {
     openPublish: false
   };
 
+
   openPublishDialog = () => this.setState({openPublish: true});
 
   closePublishDialog = () => this.setState({openPublish: false});
@@ -42,8 +43,8 @@ class StoryListItem extends Component {
     return (
       <RaisedButton
         label='Edit'
-        rippleColor="rippleColor"
         primary={true}
+        className='Buttons'
         href={`/me/editstory/${this.props.story._id}`}
       />
     )
@@ -54,14 +55,14 @@ class StoryListItem extends Component {
       <RaisedButton
         label="Cancel"
         primary={true}
+        className='Buttons'
         onClick={this.closeDeleteDialog}
-        rippleColor="rippleColor"
       />,
       <RaisedButton
         label="Delete"
         primary={true}
+        className='Buttons'
         onClick={this.deleteStoryConfirm}
-        rippleColor="rippleColor"
       />,
     ];
     return (
@@ -72,14 +73,15 @@ class StoryListItem extends Component {
             e.preventDefault();
             this.setState({openDelete: true});;
           }}
-          rippleColor="rippleColor"
           primary={true}
+          className='Buttons'
           >
           <Dialog
             title="Are you sure you want to delete?"
             actions={actionsDelete}
             modal={true}
             open={this.state.openDelete}
+            contentClassName="dialogs"
           >
             Story cannot be restored later
           </Dialog>
@@ -97,14 +99,14 @@ class StoryListItem extends Component {
       <RaisedButton
         label="Cancel"
         primary={true}
+        className='Buttons'
         onClick={this.closePublishDialog}
-        rippleColor="rippleColor"
       />,
       <RaisedButton
         label="Confirm"
         primary={true}
+        className='Buttons'
         onClick={this.publishStoryConfirm}
-        rippleColor="rippleColor"
       />,
     ];
     return (
@@ -114,14 +116,15 @@ class StoryListItem extends Component {
           e.preventDefault();
           this.setState({openPublish: true});;
         }}
-        rippleColor="rippleColor"
         primary={true}
+        className='Buttons'
         >
         <Dialog
           title={dialogTitle}
           actions={actionsPublish}
           modal={true}
           open={this.state.openPublish}
+          contentClassName="dialogs"
         >
         </Dialog>
       </RaisedButton>
@@ -132,9 +135,9 @@ class StoryListItem extends Component {
     if (window.location.href.match('me/stories') !== null) {
       return (
         <div className='ButtonsRender'>
-          <div className="single-button">{this.renderEditButton()}</div>
-          <div className="single-button">{this.renderDeleteButton()}</div>
-          <div className="single-button">{this.renderPublishButton()}</div>
+          {this.renderEditButton()}
+          {this.renderDeleteButton()}
+          {this.renderPublishButton()}
         </div>
       )
     }
