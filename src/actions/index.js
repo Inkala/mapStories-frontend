@@ -30,7 +30,9 @@ export const EDIT_EVENT_REQUEST = 'EDIT_EVENT_REQUEST';
 export const EDIT_EVENT_SUCCESS = 'EDIT_EVENT_SUCCESS';
 export const EDIT_EVENT_FAILURE = 'EDIT_EVENT_FAILURE';
 
-export const editEvent = (data, storyId) => ({
+export const editEvent = (data, storyId) => {
+  console.log(data)
+  return {
   [CALL_API]: {
     types: [ EDIT_EVENT_REQUEST, EDIT_EVENT_SUCCESS, EDIT_EVENT_FAILURE ],
     endpoint: data._id !== undefined ? `/stories/${storyId}/event/${data._id}`: `/stories/${storyId}/event`,
@@ -38,7 +40,7 @@ export const editEvent = (data, storyId) => ({
     method: data._id !== undefined ? 'PUT' : 'POST',
     data: data,
   }
-})
+}}
 
 export const DELETE_EVENT_REQUEST = 'DELETE_EVENT_REQUEST';
 export const DELETE_EVENT_SUCCESS = 'DELETE_EVENT_SUCCESS';

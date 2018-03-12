@@ -42,7 +42,7 @@ class StoryListItem extends Component {
   renderEditButton = () => {
     return (
       <RaisedButton
-        label='Edit'
+        label='Events'
         primary={true}
         className='Buttons'
         href={`/me/editstory/${this.props.story._id}`}

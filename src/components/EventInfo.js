@@ -31,16 +31,12 @@ class EventInfo extends Component {
   constructor (props) {
     super(props);
     if (props.event) {
-      this.setState({
-        eventInfo: {
-          title: props.event.title || '',
-          mapLocation: props.event.mapLocation || '',
-          dateAndTime: props.event.dateAndTime || '',
-        }
-      })
-      this.setState({
-        attachments: props.event.attachments
-      })
+      this.state.eventInfo = {
+        title: props.event.title || '',
+        mapLocation: props.event.mapLocation || '',
+        dateAndTime: props.event.dateAndTime || '',
+      }
+      this.state.attachments = props.event.attachments;
     }
   }
 
@@ -132,7 +128,7 @@ class EventInfo extends Component {
       return params
       })
       .then(params => {
-        fetch("https://s3.eu-west-2.amazonaws.com/map-story-photos", params, (error) => {
+        fetch("https://s3.us-west-2.amazonaws.com/map-stories-v3", params, (error) => {
           if (error) throw error;
       })
     })

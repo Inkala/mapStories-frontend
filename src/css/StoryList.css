@@ -61,10 +61,9 @@
   margin-right: 20px;
 }
 
-.Buttons button {
-  padding: 0 5px;
-  width: auto !important;
-  min-width: 88px;
+.Buttons span {
+  width: 63px;
+  text-transform: capitalize !important;
 }
 
 .dialogs div {
