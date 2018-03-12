@@ -23,15 +23,13 @@
 .LoggedInActions {
   display: flex;
   align-items: center;
-}
-
-.LoggedInActions > * {
-  margin: 10px 24px;
+  margin-bottom: 8px;
 }
 
 .ProfilePic {
-  max-height: 30px;
-  border-radius: 10px;
+  max-height: 45px;
+  border-radius: 50%;
+  margin-right: 15px;
 }
 
 .Search {

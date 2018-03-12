@@ -1,8 +1,22 @@
 .HomePage {
-  display: flex;
   flex: 1;
   background-color: #f7f7f7;
-  flex-direction: column;
+}
+
+.HomePage .StoryList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.HomePage .StoryListItem {
+  width: 30%;
+  margin: 10px;
+}
+
+.HomePage .ListItemDescription {
+  width: 33%;
+  padding: 25px 5px 20px 30px;
 }
 
 .NoStories {
