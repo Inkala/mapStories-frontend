@@ -112,10 +112,9 @@ class EventInfo extends Component {
         'X-Amz-Credential': data.fields['X-Amz-Credential'],
         'X-Amz-Date': data.fields['X-Amz-Date'],
         'X-Amz-Signature': data.fields['X-Amz-Signature'],
-        'key':`event-${this.props.event._id}/testfile.jpg`,
+        'key':`event-${this.props.event._id}/${fileKey}`,
         'file':file
       }
-
       const formBody = new FormData();
 
       Object.keys(body).forEach(elem => {

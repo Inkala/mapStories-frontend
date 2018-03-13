@@ -78,7 +78,7 @@ class EditorPage extends Component {
   }
 
   renderEventInfo () {
-    //TODO how could it possibly be a fucking string?
+    // ToDo how could it possibly be a fucking string?
     if(!this.props.story.events || typeof this.props.story.events[0] === 'string') return null;
 
     const currentEvent = this.props.story.events[this.state.currentEventIndex]
