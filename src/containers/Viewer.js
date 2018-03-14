@@ -21,7 +21,7 @@ class Viewer extends Component {
 
   renderEvent = (event) => {
     if(!event) return null;
-    const { title, dateAndTime, mapLocation } = event;
+    const { title, date, time, mapLocation } = event;
     const styles = {
       title: {
         fontWeight: 'bold',
@@ -29,14 +29,15 @@ class Viewer extends Component {
       subtitle: {
         fontWeight: 'bold',
         fontStyle: 'italic',
-      }
+      },
     }
     return (
       <Card className="Titles">
         <CardHeader
           title={title}
           titleStyle={styles.title}
-          subtitle={dateAndTime ? `${mapLocation} at ${dateAndTime}` : mapLocation}
+          date={date}
+          time={time ? `${mapLocation} at ${date}, ${time}` : `${mapLocation} at ${date}`}
           subtitleStyle={styles.subtitle}
         />
       </Card>

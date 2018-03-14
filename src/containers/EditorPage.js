@@ -29,7 +29,8 @@ class EditorPage extends Component {
     title: '',
     index: this.state.currentEventIndex ? this.state.currentEventIndex+1 : 0,
     mapLocation: '',
-    dateAndTime: '',
+    date: '',
+    time: '',
     attachments: []
   })
 
@@ -87,6 +88,7 @@ class EditorPage extends Component {
 
     return (
       <EventInfo
+        title={this.props.story.title}
         event={currentEvent}
         eventIndex={this.state.currentEventIndex}
         totalEvents={this.props.story.events.length}
@@ -105,7 +107,6 @@ class EditorPage extends Component {
     const event = this.props.story.events[this.state.currentEventIndex];
     let marker = undefined;
     if (event && event.location) marker = event.location;
-
     return (
       <div className="EditorPage">
         <div className="EventInfoDiv">

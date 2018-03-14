@@ -31,12 +31,18 @@ class EventInfo extends Component {
   constructor (props) {
     super(props);
     if (props.event) {
-      this.state.eventInfo = {
-        title: props.event.title || '',
-        mapLocation: props.event.mapLocation || '',
-        dateAndTime: props.event.dateAndTime || '',
-      }
-      this.state.attachments = props.event.attachments;
+      this.setState({
+        eventInfo: {
+          storyTitle: props.title || '',
+          title: props.event.title || '',
+          mapLocation: props.event.mapLocation || '',
+          date: props.event.date || '',
+          time: props.event.time || '',
+        }
+      })
+      this.setState({
+        attachments: props.event.attachments
+      })
     }
   }
 
@@ -44,9 +50,11 @@ class EventInfo extends Component {
     if (nextProps.event !== this.props.event && nextProps.eventIndex !== this.props.eventIndex) {
       this.setState({
         eventInfo: {
+          storyTitle: nextProps.title || '',
           title: nextProps.event.title || '',
           mapLocation: nextProps.event.mapLocation || '',
-          dateAndTime: nextProps.event.dateAndTime || '',
+          date: nextProps.event.date || '',
+          time: nextProps.event.time || '',
         },
         attachments: nextProps.event.attachments,
       })
@@ -181,9 +189,11 @@ class EventInfo extends Component {
 
   saveEvent = () => {
     const eventInfo = {
+      storyTitle: this.state.eventInfo.storyTitle,
       title: this.state.eventInfo.title,
       mapLocation: this.state.eventInfo.mapLocation,
-      dateAndTime: this.state.eventInfo.dateAndTime,
+      date: this.state.eventInfo.date,
+      time: this.state.eventInfo.time,
       attachments: this.state.attachments,
     }
     if (this.props.event._id) eventInfo._id = this.props.event._id
@@ -462,9 +472,10 @@ class EventInfo extends Component {
     const title = this.props.event._id
       ? `EDIT EVENT ${this.props.eventIndex+1}/${this.props.totalEvents}`
       : 'ADD EVENT';
+    const storyTitle = this.props.title;
     return (
       <div className="EventInfoContainer">
-        <Paper className="InputHeader" style={headerStyle} zDepth={5}>{title}</Paper>
+        <Paper className="InputHeader" style={headerStyle} zDepth={5}>{title} <br /><small>From: <span>{storyTitle}</span></small></Paper>
         <Paper className="InputInfo" zDepth={3}>
           <div className="nextPrev">
             <FlatButton
@@ -500,12 +511,19 @@ class EventInfo extends Component {
             onChange={this.handleTextChange}
             value={this.state.eventInfo.mapLocation}
           /><br />
-          <TextField hintText="Date & Time (optional)"
-            floatingLabelText="Date & Time"
+          <TextField hintText="Date"
+            floatingLabelText="Date"
             fullWidth
-            name="dateAndTime"
+            name="date"
             onChange={this.handleTextChange}
-            value={this.state.eventInfo.dateAndTime}
+            value={this.state.eventInfo.date}
+          /><br />
+          <TextField hintText="Time (optional)"
+            floatingLabelText="Time"
+            fullWidth
+            name="time"
+            onChange={this.handleTextChange}
+            value={this.state.eventInfo.time}
           /><br />
           {attachments}
           <FlatButton className="AddAttachment" label="+ Add Attachment" primary={true} style={style} onClick={this.addAttachment}/>

@@ -45,11 +45,12 @@
 }
 
 .InputHeader {
-  height: 65px;
   margin-left: 2em;
-  padding-left: 2em;
-  padding-top: 2em;
-  background-color: #fafafa;
+  padding: 1.2em 1.8em;
+}
+
+.InputHeader span {
+  color: #383838;
 }
 
 .InputInfo {
@@ -60,8 +61,8 @@
   overflow: scroll;
 };
 
-.AddAttachment {
-  margin-top: 2em;
+.AddAttachment div hr {
+  margin-top: 0 !important;
 }
 
 ::-webkit-scrollbar {

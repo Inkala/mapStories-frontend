@@ -142,18 +142,36 @@ class StoryListItem extends Component {
       )
     }
   }
-
-  renderStoryAssets = () => {
+  renderInfo = () => {
     const { title, tagLine, editor, _id } = this.props.story ? this.props.story : null;
     const editorInfo = this.props.editors[editor];
+    const eventsNum = this.props.story.events.length;
+    if (eventsNum > 0) {
+      return (
+        <a href={`/story/${_id}`}>
+          <h2>{title}</h2>
+          {this.props.renderEditor ? <small>by {editorInfo.name}</small> : null }
+          <p>{tagLine}</p>
+          <p>{eventsNum} events in this story</p>
+        </a>
+      )
+    } else {
+      return (
+        <div className="disabled">
+          <h2>{title}</h2>
+          {this.props.renderEditor ? <small>by {editorInfo.name}</small> : null }
+          <p>{tagLine}</p>
+          <p>{eventsNum} events in this story</p>
+        </div>
+      )
+    }
+  }
+
+  renderStoryAssets = () => {
     return (
       <div className="ListItemPaper">
         <div className="ListItemDescription">
-          <a href={`/story/${_id}`}>
-            <p>{title}</p>
-            <p>{tagLine}</p>
-            {this.props.renderEditor ? <p><small>by {editorInfo.name}</small></p> : null }
-          </a>
+          {this.renderInfo()}
         </div>
         <div className='Buttons'>
           {this.renderButtons()}

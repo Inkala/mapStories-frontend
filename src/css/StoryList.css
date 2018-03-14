@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  margin-top: 2em;
+  margin-top: 1.35em;
 }
 
 .StoryListItem {
@@ -26,27 +26,34 @@
   padding-left: 10px;
   padding-right: 20px;
   flex-grow: 2 !important;
-  padding: 25px 0 20px 30px;
+  padding: 30px;
 }
 
-.ListItemDescription p:first-child {
+h2 {
   font-weight: 600;
   color: black;
   font-size: 1.3rem;
-  padding-top:0px;
+  padding-top: 0px;
+  margin: 3px 0;
 }
 
 .ListItemDescription p {
-  color: grey;
+  color: #3c3c3c;
   padding-top: 4px;
   margin: 0px;
+}
+
+.ListItemDescription p:last-child {
+  color: #7c7c7c;
 }
 
 .ListItemDescription small {
   font-weight: 200;
   color: #4771a6;
-  display: block;
-  margin: 5px;
+}
+
+.disabled {
+  display: block !important;
 }
 
 .Paper {
