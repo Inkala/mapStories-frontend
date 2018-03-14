@@ -48,9 +48,9 @@ class NavBar extends Component {
     const { pathname } = this.props.location;
     const { token, picture } = this.props.user;
     return (
-      <AppBar
-        className="NavBar"
-        title={<Link style={{textDecoration:'none'}} to='/'>Map Stories</Link>}
+      <div className="NavBar">
+        <div className="AppName"><a href='/'>Map Stories</a></div>
+        <AppBar
         showMenuIconButton={false}
         iconElementRight={
           token
@@ -67,9 +67,10 @@ class NavBar extends Component {
             </div>
           )}
         />
-      );
-    }
+      </div>
+    );
   }
+}
 
  const mapStateToProps = (state) => ({
     editors: state.entities.editors,

@@ -17,16 +17,6 @@ class HomePage extends Component {
     this.props.page.searchResults.length = 0;
   }
 
-  // componentDidMount() {
-  //   const timeStamps = [1000, 2000];
-  //   const wait = timeStamps[Math.floor(Math.random()*timeStamps.length)];
-  //   setTimeout(() => {
-  //     this.setState({
-  //       loading: false,
-  //     })
-  //   }, wait)
-  // }
-
   componentDidMount() {
     this.setState({
       loading: false,

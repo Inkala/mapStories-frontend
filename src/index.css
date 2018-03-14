@@ -2,7 +2,7 @@ html,body {
   height:100vh;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Roboto Thin', sans-serif;
   font-size: 15px;
   background-color: #f7f7f7;
 }
@@ -10,4 +10,73 @@ html,body {
 a, a:visited {
   text-decoration: none;
   color: inherit;
+}
+
+@media (max-width: 1380px) {
+  .StoryList {
+    max-width: 960px;
+
+  }
+}
+
+@media (max-width: 1024px) {
+  .StoryList {
+    max-width: 800px;
+
+  }
+}
+
+@media (max-width: 768px) {
+  .StoryList {
+    max-width: 600px;
+  }
+  .HomePage .StoryListItem {
+    width: 45%;
+  }
+}
+
+@media (max-width: 530px) {
+  .ListItemPaper {
+    flex-direction: column;
+  }
+  .Buttons {
+    justify-content: space-between;
+  }
+  .HomePage .StoryListItem {
+    width: 100%;
+  }
+  .HomePage .ListItemDescription {
+    width: 86%;
+  }
+  .NavBar {
+    display: inline-block;
+  }
+  .AppName {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 0;
+  }
+  .Logged {
+    position: relative;
+    top: -50px;
+    right: 5px;
+  }
+  .ProfilePic {
+    position: relative;
+    top: -50px;
+    right: 15px;
+  }
+  .Search {
+    margin-right: 0;
+    margin-left: 2em;
+  }
+  .LoginButton {
+    padding: 0.3em 0;
+    margin-left: 10px;
+  }
+  .AddStoryButton {
+    /* margin-top: 15px !important;
+    z-index: 10;
+    right: 0; */
+  }
 }

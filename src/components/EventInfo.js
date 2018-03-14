@@ -112,7 +112,6 @@ class EventInfo extends Component {
     fetch(`http://localhost:4000/token/event/${this.props.event._id}`)
     .then(data => data.json())
     .then(data => {
-
       const body = {
         'bucket': data.fields.bucket,
         'Policy': data.fields.Policy,
@@ -123,11 +122,14 @@ class EventInfo extends Component {
         'key':`event-${this.props.event._id}/${fileKey}`,
         'file':file
       }
+      console.log('body: ',body)
       const formBody = new FormData();
-
       Object.keys(body).forEach(elem => {
-        formBody.append(elem, body[elem])
+        console.log('elements: ', elem, body[elem]);
+        // formBody[elem] = body[elem];
+        formBody.set(elem, body[elem]);
       })
+      console.log('formBody: ',formBody)
       const params = {
         method:'POST',
         body:formBody
@@ -135,11 +137,11 @@ class EventInfo extends Component {
       return params
       })
       .then(params => {
-        fetch("https://s3.us-west-2.amazonaws.com/map-stories-v3", params, (error) => {
+        console.log('params: ',params)
+        fetch("https://s3.us-east-1.amazonaws.com/map-stories-east", params, (error) => {
           if (error) throw error;
       })
     })
-
   }
 
   toggleDisable = (index) => {
@@ -543,7 +545,6 @@ class EventInfo extends Component {
     );
   }
 }
-
 
 const mapStateToProps = (state, ownProps) => ({
   // id: ownProps.computedMatch.params.storyId,

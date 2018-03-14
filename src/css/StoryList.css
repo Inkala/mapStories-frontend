@@ -1,5 +1,5 @@
 .StoryList {
-  max-width: 800px;
+  max-width: 1024px;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -43,18 +43,14 @@ h2 {
   margin: 0px;
 }
 
-.ListItemDescription p:last-child {
-  color: #7c7c7c;
-}
+.ListItemDescription p:last-child { color: #7c7c7c; }
 
 .ListItemDescription small {
   font-weight: 200;
   color: #4771a6;
 }
 
-.disabled {
-  display: block !important;
-}
+.disabled { display: block !important; }
 
 .Paper {
   align-items: center;
@@ -75,20 +71,4 @@ h2 {
 
 .dialogs div {
   margin-bottom: 10px;
-}
-
-@media (max-width: 1380px) {
-  .StoryList {
-
-  }
-}
-
-@media (max-width: 480px) {
-  .ListItemPaper {
-    flex-direction: column;
-  }
-  .Buttons {
-    justify-content: space-between;
-  }
-
 }

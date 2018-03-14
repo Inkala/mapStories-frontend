@@ -1,18 +1,10 @@
-.UserPage {
-  flex: 1;
-}
+.UserPage { flex: 1; }
 
-.UserPage div {
-  display: flex;
-}
+.UserPage div { display: flex; }
 
-.UserPage div > * {
-  flex: 1;
-}
+.UserPage div > * { flex: 1; }
 
-.AddStoryButton {
-  position: absolute;
-}
+.AddStoryButton { position: absolute; }
 
 .NoUserStories {
   display: flex;
